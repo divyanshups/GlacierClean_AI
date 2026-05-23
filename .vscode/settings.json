@@ -1,0 +1,15 @@
+{
+  "python.analysis.extraPaths": [
+    "${workspaceFolder}"
+  ],
+  "python.analysis.include": [
+    "agents",
+    "app",
+    "core",
+    "utils",
+    "tests"
+  ],
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.diagnosticMode": "workspace"
+}

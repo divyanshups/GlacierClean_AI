@@ -1,0 +1,19 @@
+{
+  "pythonVersion": "3.10",
+  "pythonPlatform": "All",
+  "include": [
+    "agents",
+    "app",
+    "core",
+    "utils",
+    "tests",
+    "main.py"
+  ],
+  "extraPaths": [
+    "."
+  ],
+  "venvPath": ".",
+  "reportMissingImports": "warning",
+  "reportMissingModuleSource": "warning",
+  "typeCheckingMode": "basic"
+}

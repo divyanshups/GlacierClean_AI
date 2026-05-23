@@ -1,0 +1,292 @@
+{
+  "generated_at": "2026-05-19T06:21:09Z",
+  "input_shape": {
+    "rows": 210,
+    "cols": 6
+  },
+  "output_shape": {
+    "rows": 210,
+    "cols": 5
+  },
+  "quality_score": {
+    "before": 96.74,
+    "after": 99.52,
+    "improvement": 2.78
+  },
+  "metrics_before": {
+    "n_rows": 210,
+    "n_cols": 6,
+    "missing_total": 108,
+    "missing_rate": 8.5714,
+    "missing_per_column": {
+      "id": 0.0,
+      "age": 16.67,
+      "income": 10.0,
+      "category": 24.76,
+      "note": 0.0,
+      "const": 0.0
+    },
+    "n_duplicates": 5,
+    "duplicate_rate": 2.381,
+    "n_outlier_cells": 9,
+    "outlier_rate": 1.0714,
+    "outlier_counts_per_col": {
+      "income": 9
+    },
+    "high_cardinality_cols": {},
+    "n_numeric_cols": 4,
+    "n_categorical_cols": 2,
+    "mixed_type_cols": [],
+    "schema_consistency": 100.0,
+    "row_retention": 100.0
+  },
+  "metrics_after": {
+    "n_rows": 210,
+    "n_cols": 5,
+    "missing_total": 0,
+    "missing_rate": 0.0,
+    "missing_per_column": {
+      "id": 0.0,
+      "age": 0.0,
+      "income": 0.0,
+      "category": 0.0,
+      "note": 0.0
+    },
+    "n_duplicates": 5,
+    "duplicate_rate": 2.381,
+    "n_outlier_cells": 0,
+    "outlier_rate": 0.0,
+    "outlier_counts_per_col": {},
+    "high_cardinality_cols": {},
+    "n_numeric_cols": 3,
+    "n_categorical_cols": 2,
+    "mixed_type_cols": [],
+    "schema_consistency": 100.0,
+    "row_retention": 100.0
+  },
+  "delta": {
+    "missing_rate": {
+      "before": 8.5714,
+      "after": 0,
+      "absolute_change": -8.5714,
+      "relative_change_pct": -100.0
+    },
+    "duplicate_rate": {
+      "before": 2.381,
+      "after": 2.381,
+      "absolute_change": 0.0,
+      "relative_change_pct": 0.0
+    },
+    "outlier_rate": {
+      "before": 1.0714,
+      "after": 0,
+      "absolute_change": -1.0714,
+      "relative_change_pct": -100.0
+    },
+    "schema_consistency": {
+      "before": 100.0,
+      "after": 100.0,
+      "absolute_change": 0.0,
+      "relative_change_pct": 0.0
+    },
+    "n_rows": {
+      "before": 210,
+      "after": 210,
+      "absolute_change": 0,
+      "relative_change_pct": 0.0
+    },
+    "n_cols": {
+      "before": 6,
+      "after": 5,
+      "absolute_change": -1,
+      "relative_change_pct": -16.67
+    },
+    "missing_total": {
+      "before": 108,
+      "after": 0,
+      "absolute_change": -108,
+      "relative_change_pct": -100.0
+    },
+    "n_duplicates": {
+      "before": 5,
+      "after": 5,
+      "absolute_change": 0,
+      "relative_change_pct": 0.0
+    },
+    "n_outlier_cells": {
+      "before": 9,
+      "after": 0,
+      "absolute_change": -9,
+      "relative_change_pct": -100.0
+    },
+    "row_retention": {
+      "before": 100.0,
+      "after": 100.0,
+      "rows_removed": 0
+    }
+  },
+  "issues_detected": 8,
+  "actions_planned": 7,
+  "actions_applied": 6,
+  "change_log": [
+    {
+      "action_id": "ACT-0006",
+      "action_type": "drop_column",
+      "column": "const",
+      "description": "Dropped column 'const'",
+      "before_shape": [
+        210,
+        6
+      ],
+      "after_shape": [
+        210,
+        5
+      ]
+    },
+    {
+      "action_id": "ACT-0002",
+      "action_type": "impute",
+      "column": "age",
+      "description": "Imputed 'age' (numeric) with median",
+      "missing_before": 35,
+      "missing_after": 0
+    },
+    {
+      "action_id": "ACT-0001",
+      "action_type": "impute",
+      "column": "category",
+      "description": "Imputed 'category' (categorical) with mode",
+      "missing_before": 52,
+      "missing_after": 0
+    },
+    {
+      "action_id": "ACT-0003",
+      "action_type": "impute",
+      "column": "income",
+      "description": "Imputed 'income' (numeric) with median",
+      "missing_before": 21,
+      "missing_after": 0
+    },
+    {
+      "action_id": "ACT-0007",
+      "action_type": "normalize_text",
+      "column": "note",
+      "description": "Normalized text in 'note'"
+    },
+    {
+      "action_id": "ACT-0005",
+      "action_type": "outlier_clip",
+      "column": "income",
+      "description": "Handled outliers in 'income' via outlier_clip",
+      "before": {
+        "min": 11500.123386030536,
+        "max": 1000000.0
+      },
+      "after": {
+        "min": 16525.92669904473,
+        "max": 80476.60819516829
+      }
+    }
+  ],
+  "issues": [
+    {
+      "issue_type": "missing_values",
+      "column": "category",
+      "severity": "high",
+      "description": "'category' has 24.8% missing values (52 rows)",
+      "affected_count": 52,
+      "affected_pct": 24.76,
+      "suggested_action": "Impute or drop column",
+      "metadata": {}
+    },
+    {
+      "issue_type": "missing_values",
+      "column": "age",
+      "severity": "medium",
+      "description": "'age' has 16.7% missing values (35 rows)",
+      "affected_count": 35,
+      "affected_pct": 16.67,
+      "suggested_action": "Impute missing values",
+      "metadata": {}
+    },
+    {
+      "issue_type": "missing_values",
+      "column": "income",
+      "severity": "medium",
+      "description": "'income' has 10.0% missing values (21 rows)",
+      "affected_count": 21,
+      "affected_pct": 10.0,
+      "suggested_action": "Impute missing values",
+      "metadata": {}
+    },
+    {
+      "issue_type": "duplicate_rows",
+      "column": null,
+      "severity": "medium",
+      "description": "5 duplicate rows detected (2.4%)",
+      "affected_count": 5,
+      "affected_pct": 2.38,
+      "suggested_action": "Remove duplicate rows (keep first occurrence)",
+      "metadata": {}
+    },
+    {
+      "issue_type": "outliers",
+      "column": "income",
+      "severity": "medium",
+      "description": "'income' has 9 outliers (4.8%) by IQR method",
+      "affected_count": 9,
+      "affected_pct": 4.76,
+      "suggested_action": "Clip or winsorize outliers",
+      "metadata": {
+        "q1": 39063.74243384587,
+        "q3": 57202.15105087416,
+        "iqr": 18138.40861702829
+      }
+    },
+    {
+      "issue_type": "constant_column",
+      "column": "const",
+      "severity": "medium",
+      "description": "'const' has only 1 unique value \u2014 carries no information",
+      "affected_count": 210,
+      "affected_pct": 100.0,
+      "suggested_action": "Drop this column",
+      "metadata": {}
+    },
+    {
+      "issue_type": "high_skewness",
+      "column": "income",
+      "severity": "low",
+      "description": "'income' is highly skewed (skew=5.86) \u2014 may benefit from a log or sqrt transform",
+      "affected_count": 0,
+      "affected_pct": 0.0,
+      "suggested_action": "Apply log or Box-Cox transform if using for ML",
+      "metadata": {
+        "skewness": 5.8622
+      }
+    },
+    {
+      "issue_type": "string_whitespace",
+      "column": "note",
+      "severity": "low",
+      "description": "'note' contains entries with leading/trailing whitespace",
+      "affected_count": 0,
+      "affected_pct": 0.0,
+      "suggested_action": "Strip whitespace from string column",
+      "metadata": {}
+    }
+  ],
+  "profile_summary": {
+    "global": {
+      "total_cells": 1260,
+      "missing_cells": 108,
+      "missing_pct": 8.571,
+      "duplicate_rows": 5,
+      "duplicate_pct": 2.381,
+      "memory_mb": 0.012,
+      "numeric_cols": 4,
+      "categorical_cols": 0,
+      "datetime_cols": 0
+    }
+  }
+}

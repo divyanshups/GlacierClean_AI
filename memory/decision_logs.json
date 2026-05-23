@@ -1,0 +1,422 @@
+[
+  {
+    "timestamp": "2026-04-06T10:03:38Z",
+    "agent": "DecisionAgent",
+    "action": "impute",
+    "rationale": "Impute 'category' (24.8% missing) using median (numeric) / mode (categorical).",
+    "params": {
+      "column": "category",
+      "numeric_strategy": "median",
+      "categorical_strategy": "mode",
+      "constant": "Unknown"
+    },
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "2026-04-06T10:03:38Z",
+    "agent": "DecisionAgent",
+    "action": "impute",
+    "rationale": "Impute 'age' (16.7% missing) using median (numeric) / mode (categorical).",
+    "params": {
+      "column": "age",
+      "numeric_strategy": "median",
+      "categorical_strategy": "mode",
+      "constant": "Unknown"
+    },
+    "confidence": 0.8
+  },
+  {
+    "timestamp": "2026-04-06T10:03:38Z",
+    "agent": "DecisionAgent",
+    "action": "impute",
+    "rationale": "Impute 'income' (10.0% missing) using median (numeric) / mode (categorical).",
+    "params": {
+      "column": "income",
+      "numeric_strategy": "median",
+      "categorical_strategy": "mode",
+      "constant": "Unknown"
+    },
+    "confidence": 0.8
+  },
+  {
+    "timestamp": "2026-04-06T10:03:38Z",
+    "agent": "DecisionAgent",
+    "action": "drop_duplicates",
+    "rationale": "Remove 5 duplicate rows (strategy: keep_first).",
+    "params": {
+      "column": null,
+      "keep": "keep_first"
+    },
+    "confidence": 0.98
+  },
+  {
+    "timestamp": "2026-04-06T10:03:38Z",
+    "agent": "DecisionAgent",
+    "action": "outlier_clip",
+    "rationale": "'income' has 4.8% outliers \u2014 applying 'clip'.",
+    "params": {
+      "column": "income",
+      "method": "iqr",
+      "iqr_factor": 1.5
+    },
+    "confidence": 0.85
+  },
+  {
+    "timestamp": "2026-04-06T10:03:38Z",
+    "agent": "DecisionAgent",
+    "action": "drop_column",
+    "rationale": "'const' is constant \u2014 zero variance, no predictive value.",
+    "params": {
+      "column": "const"
+    },
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "2026-04-06T10:03:38Z",
+    "agent": "DecisionAgent",
+    "action": "normalize_text",
+    "rationale": "Strip whitespace and normalise text in 'note'.",
+    "params": {
+      "column": "note",
+      "lowercase": true,
+      "strip": true
+    },
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2026-04-06T10:03:50Z",
+    "agent": "DecisionAgent",
+    "action": "impute",
+    "rationale": "Impute 'category' (24.8% missing) using median (numeric) / mode (categorical).",
+    "params": {
+      "column": "category",
+      "numeric_strategy": "median",
+      "categorical_strategy": "mode",
+      "constant": "Unknown"
+    },
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "2026-04-06T10:03:50Z",
+    "agent": "DecisionAgent",
+    "action": "impute",
+    "rationale": "Impute 'age' (16.7% missing) using median (numeric) / mode (categorical).",
+    "params": {
+      "column": "age",
+      "numeric_strategy": "median",
+      "categorical_strategy": "mode",
+      "constant": "Unknown"
+    },
+    "confidence": 0.8
+  },
+  {
+    "timestamp": "2026-04-06T10:03:50Z",
+    "agent": "DecisionAgent",
+    "action": "impute",
+    "rationale": "Impute 'income' (10.0% missing) using median (numeric) / mode (categorical).",
+    "params": {
+      "column": "income",
+      "numeric_strategy": "median",
+      "categorical_strategy": "mode",
+      "constant": "Unknown"
+    },
+    "confidence": 0.8
+  },
+  {
+    "timestamp": "2026-04-06T10:03:50Z",
+    "agent": "DecisionAgent",
+    "action": "drop_duplicates",
+    "rationale": "Remove 5 duplicate rows (strategy: keep_first).",
+    "params": {
+      "column": null,
+      "keep": "keep_first"
+    },
+    "confidence": 0.98
+  },
+  {
+    "timestamp": "2026-04-06T10:03:50Z",
+    "agent": "DecisionAgent",
+    "action": "outlier_clip",
+    "rationale": "'income' has 4.8% outliers \u2014 applying 'clip'.",
+    "params": {
+      "column": "income",
+      "method": "iqr",
+      "iqr_factor": 1.5
+    },
+    "confidence": 0.85
+  },
+  {
+    "timestamp": "2026-04-06T10:03:50Z",
+    "agent": "DecisionAgent",
+    "action": "drop_column",
+    "rationale": "'const' is constant \u2014 zero variance, no predictive value.",
+    "params": {
+      "column": "const"
+    },
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "2026-04-06T10:03:50Z",
+    "agent": "DecisionAgent",
+    "action": "normalize_text",
+    "rationale": "Strip whitespace and normalise text in 'note'.",
+    "params": {
+      "column": "note",
+      "lowercase": true,
+      "strip": true
+    },
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2026-05-19T06:19:05Z",
+    "agent": "DecisionAgent",
+    "action": "impute",
+    "rationale": "Impute 'category' (24.8% missing) using median for numeric values and mode for categorical values.",
+    "params": {
+      "column": "category",
+      "numeric_strategy": "median",
+      "categorical_strategy": "mode",
+      "constant": "Unknown"
+    },
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "2026-05-19T06:19:05Z",
+    "agent": "DecisionAgent",
+    "action": "impute",
+    "rationale": "Impute 'age' (16.7% missing) using median for numeric values and mode for categorical values.",
+    "params": {
+      "column": "age",
+      "numeric_strategy": "median",
+      "categorical_strategy": "mode",
+      "constant": "Unknown"
+    },
+    "confidence": 0.8
+  },
+  {
+    "timestamp": "2026-05-19T06:19:05Z",
+    "agent": "DecisionAgent",
+    "action": "impute",
+    "rationale": "Impute 'income' (10.0% missing) using median for numeric values and mode for categorical values.",
+    "params": {
+      "column": "income",
+      "numeric_strategy": "median",
+      "categorical_strategy": "mode",
+      "constant": "Unknown"
+    },
+    "confidence": 0.8
+  },
+  {
+    "timestamp": "2026-05-19T06:19:05Z",
+    "agent": "DecisionAgent",
+    "action": "drop_duplicates",
+    "rationale": "Remove 5 duplicate rows (strategy: keep_first).",
+    "params": {
+      "column": null,
+      "keep": "keep_first"
+    },
+    "confidence": 0.98
+  },
+  {
+    "timestamp": "2026-05-19T06:19:05Z",
+    "agent": "DecisionAgent",
+    "action": "outlier_clip",
+    "rationale": "'income' has 4.8% outliers \u2014 applying 'clip'.",
+    "params": {
+      "column": "income",
+      "method": "iqr",
+      "iqr_factor": 1.5
+    },
+    "confidence": 0.85
+  },
+  {
+    "timestamp": "2026-05-19T06:19:06Z",
+    "agent": "DecisionAgent",
+    "action": "drop_column",
+    "rationale": "'const' contains only one unique value \u2014 zero variance, no predictive power.",
+    "params": {
+      "column": "const"
+    },
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "2026-05-19T06:19:06Z",
+    "agent": "DecisionAgent",
+    "action": "normalize_text",
+    "rationale": "Strip whitespace and normalise text in 'note'.",
+    "params": {
+      "column": "note",
+      "lowercase": true,
+      "strip": true
+    },
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2026-05-19T06:20:50Z",
+    "agent": "DecisionAgent",
+    "action": "impute",
+    "rationale": "Impute 'category' (24.8% missing) using median for numeric values and mode for categorical values.",
+    "params": {
+      "column": "category",
+      "numeric_strategy": "median",
+      "categorical_strategy": "mode",
+      "constant": "Unknown"
+    },
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "2026-05-19T06:20:50Z",
+    "agent": "DecisionAgent",
+    "action": "impute",
+    "rationale": "Impute 'age' (16.7% missing) using median for numeric values and mode for categorical values.",
+    "params": {
+      "column": "age",
+      "numeric_strategy": "median",
+      "categorical_strategy": "mode",
+      "constant": "Unknown"
+    },
+    "confidence": 0.8
+  },
+  {
+    "timestamp": "2026-05-19T06:20:50Z",
+    "agent": "DecisionAgent",
+    "action": "impute",
+    "rationale": "Impute 'income' (10.0% missing) using median for numeric values and mode for categorical values.",
+    "params": {
+      "column": "income",
+      "numeric_strategy": "median",
+      "categorical_strategy": "mode",
+      "constant": "Unknown"
+    },
+    "confidence": 0.8
+  },
+  {
+    "timestamp": "2026-05-19T06:20:50Z",
+    "agent": "DecisionAgent",
+    "action": "drop_duplicates",
+    "rationale": "Remove 5 duplicate rows (strategy: keep_first).",
+    "params": {
+      "column": null,
+      "keep": "keep_first"
+    },
+    "confidence": 0.98
+  },
+  {
+    "timestamp": "2026-05-19T06:20:50Z",
+    "agent": "DecisionAgent",
+    "action": "outlier_clip",
+    "rationale": "'income' has 4.8% outliers \u2014 applying 'clip'.",
+    "params": {
+      "column": "income",
+      "method": "iqr",
+      "iqr_factor": 1.5
+    },
+    "confidence": 0.85
+  },
+  {
+    "timestamp": "2026-05-19T06:20:50Z",
+    "agent": "DecisionAgent",
+    "action": "drop_column",
+    "rationale": "'const' contains only one unique value \u2014 zero variance, no predictive power.",
+    "params": {
+      "column": "const"
+    },
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "2026-05-19T06:20:50Z",
+    "agent": "DecisionAgent",
+    "action": "normalize_text",
+    "rationale": "Strip whitespace and normalise text in 'note'.",
+    "params": {
+      "column": "note",
+      "lowercase": true,
+      "strip": true
+    },
+    "confidence": 0.9
+  },
+  {
+    "timestamp": "2026-05-19T06:21:09Z",
+    "agent": "DecisionAgent",
+    "action": "impute",
+    "rationale": "Impute 'category' (24.8% missing) using median for numeric values and mode for categorical values.",
+    "params": {
+      "column": "category",
+      "numeric_strategy": "median",
+      "categorical_strategy": "mode",
+      "constant": "Unknown"
+    },
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "2026-05-19T06:21:09Z",
+    "agent": "DecisionAgent",
+    "action": "impute",
+    "rationale": "Impute 'age' (16.7% missing) using median for numeric values and mode for categorical values.",
+    "params": {
+      "column": "age",
+      "numeric_strategy": "median",
+      "categorical_strategy": "mode",
+      "constant": "Unknown"
+    },
+    "confidence": 0.8
+  },
+  {
+    "timestamp": "2026-05-19T06:21:09Z",
+    "agent": "DecisionAgent",
+    "action": "impute",
+    "rationale": "Impute 'income' (10.0% missing) using median for numeric values and mode for categorical values.",
+    "params": {
+      "column": "income",
+      "numeric_strategy": "median",
+      "categorical_strategy": "mode",
+      "constant": "Unknown"
+    },
+    "confidence": 0.8
+  },
+  {
+    "timestamp": "2026-05-19T06:21:09Z",
+    "agent": "DecisionAgent",
+    "action": "drop_duplicates",
+    "rationale": "Remove 5 duplicate rows (strategy: keep_first).",
+    "params": {
+      "column": null,
+      "keep": "keep_first"
+    },
+    "confidence": 0.98
+  },
+  {
+    "timestamp": "2026-05-19T06:21:09Z",
+    "agent": "DecisionAgent",
+    "action": "outlier_clip",
+    "rationale": "'income' has 4.8% outliers \u2014 applying 'clip'.",
+    "params": {
+      "column": "income",
+      "method": "iqr",
+      "iqr_factor": 1.5
+    },
+    "confidence": 0.85
+  },
+  {
+    "timestamp": "2026-05-19T06:21:09Z",
+    "agent": "DecisionAgent",
+    "action": "drop_column",
+    "rationale": "'const' contains only one unique value \u2014 zero variance, no predictive power.",
+    "params": {
+      "column": "const"
+    },
+    "confidence": 0.95
+  },
+  {
+    "timestamp": "2026-05-19T06:21:09Z",
+    "agent": "DecisionAgent",
+    "action": "normalize_text",
+    "rationale": "Strip whitespace and normalise text in 'note'.",
+    "params": {
+      "column": "note",
+      "lowercase": true,
+      "strip": true
+    },
+    "confidence": 0.9
+  }
+]

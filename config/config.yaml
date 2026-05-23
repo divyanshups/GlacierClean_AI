@@ -1,0 +1,49 @@
+# Autonomous Data Cleaning Agent Configuration
+
+pipeline:
+  max_iterations: 3
+  auto_approve: false          # Set true to skip human confirmation
+  confidence_threshold: 0.75   # Min confidence to auto-apply a fix
+
+profiler:
+  sample_size: 5000            # Rows to use for profiling (None = all)
+  cardinality_threshold: 50    # Unique values above this = high cardinality
+  skew_threshold: 1.0          # Absolute skew above this = skewed column
+
+issue_detector:
+  missing_critical: 0.50       # > 50% missing → critical
+  missing_high: 0.20           # > 20% missing → high severity
+  missing_low: 0.05            # > 5%  missing → low severity
+  outlier_method: iqr          # Options: iqr, zscore, isolation_forest
+  outlier_iqr_factor: 1.5
+  outlier_zscore_threshold: 3.0
+  duplicate_subset: null       # null = all columns
+  min_variance_threshold: 0.01 # Near-zero variance flag
+
+cleaning:
+  missing_numeric_strategy: median    # mean | median | mode | knn | drop
+  missing_categorical_strategy: mode  # mode | constant | drop
+  missing_constant_fill: "Unknown"
+  outlier_strategy: clip              # clip | remove | winsorize | none
+  duplicate_strategy: keep_first      # keep_first | keep_last | drop_all
+  text_normalization: true            # strip, lowercase, collapse whitespace
+  date_inference: true                # Try to parse string columns as dates
+  encode_categoricals: false          # Label-encode after cleaning
+
+evaluation:
+  metrics:
+    - missing_rate
+    - duplicate_rate
+    - outlier_rate
+    - schema_consistency
+    - row_retention
+
+logging:
+  level: INFO                  # DEBUG | INFO | WARNING | ERROR
+  log_file: memory/agent.log
+  decision_log: memory/decision_logs.json
+
+output:
+  cleaned_csv: outputs/cleaned_dataset.csv
+  report_html: outputs/reports/cleaning_report.html
+  report_json: outputs/reports/cleaning_report.json
