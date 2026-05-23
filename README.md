@@ -1,4 +1,4 @@
-# 🧹 Autonomous Data Cleaning Agent
+# 🧹 Intelligent Data Cleaning Agent
 
 An end-to-end, AI-powered data cleaning pipeline that autonomously profiles, detects issues, plans fixes, applies cleaning operations, and evaluates data quality — with a polished Streamlit UI.
 
