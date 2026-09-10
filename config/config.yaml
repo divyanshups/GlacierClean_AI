@@ -1,0 +1,43 @@
+project:
+  name: "Intelligent Data Cleaning System"
+  version: "0.1.0"
+  output_dir: "outputs/"
+  decision_log_file: "logs/decision_logs.json"
+
+data_loader:
+  supported_formats:
+    - csv
+    - xlsx
+    - json
+    - parquet
+  max_file_size_mb: 100
+  encoding: "utf-8"
+
+profiler:
+  sample_size: 1000          # rows to use for heavy computations
+  top_n_values: 5            # top N frequent values to show per column
+  correlation_threshold: 0.8 # flag highly correlated columns
+
+issue_detector:
+  missing_rate_threshold: 0.05      # flag if >5% values missing
+  high_cardinality_threshold: 0.95  # flag if >95% values are unique
+  low_cardinality_threshold: 0.01   # flag if <1% values are unique
+  outlier_z_score_threshold: 3.0    # standard deviations for outlier detection
+  outlier_iqr_multiplier: 1.5       # IQR multiplier for outlier detections
+
+recommendation-llm:
+  model: "gemini-2.5-flash"
+  temperature: 0.1
+  enabled: true        
+
+cleaning:
+  default_numeric_imputation: "median"
+  default_categorical_imputation: "mode"
+  outlier_method: "iqr"             
+
+evaluation:
+  weights:
+    completeness: 0.30
+    consistency: 0.25
+    uniqueness: 0.20
+    validity: 0.25

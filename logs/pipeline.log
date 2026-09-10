@@ -1,0 +1,30 @@
+2026-09-10 19:38:37 | INFO     | core.data_loader | Attempting to load dataset from: [bold]C:\Users\HP\AppData\Local\Temp\tmpzmdbbwgs.csv[/bold]
+2026-09-10 19:38:37 | INFO     | core.data_loader | File size: 613.5 KB, Format: .csv
+2026-09-10 19:38:37 | INFO     | core.data_loader | Successfully loaded [bold green]tmpzmdbbwgs.csv[/bold green] | Shape: 8399 rows × 10 cols | Fingerprint: 30f9bc9f
+2026-09-10 19:38:37 | INFO     | module.profiler_module | Profiling dataset: 8399 rows × 10 cols
+2026-09-10 19:38:37 | DEBUG    | utils.preprocessing_utils | Detected column types: {'Ord_id': 'categorical', 'Prod_id': 'categorical', 'Ship_id': 'categorical', 'Cust_id': 'categorical', 'Sales': 'continuous', 'Discount': 'categorical', 'Order_Quantity': 'categorical', 'Profit': 'continuous', 'Shipping_Cost': 'continuous', 'Product_Base_Margin': 'categorical'}
+2026-09-10 19:38:37 | INFO     | module.profiler_module | Profile complete. 10 columns analyzed.
+2026-09-10 19:38:37 | INFO     | module.issue_detector_module | Running issue detection...
+2026-09-10 19:38:37 | INFO     | module.issue_detector_module | Detected 8 issues.
+2026-09-10 19:38:50 | INFO     | module.cleaning_module | CleaningModule: executing 3 action(s)...
+2026-09-10 19:38:50 | INFO     | utils.preprocessing_utils | Capped 1704 outliers in 'Profit' using iqr method. Fences: [-452.41, 531.85]
+2026-09-10 19:38:50 | INFO     | utils.preprocessing_utils | Capped 1042 outliers in 'Sales' using iqr method. Fences: [-2205.99, 4058.51]
+2026-09-10 19:38:50 | INFO     | utils.preprocessing_utils | Capped 972 outliers in 'Shipping_Cost' using iqr method. Fences: [-12.74, 30.03]
+2026-09-10 19:38:50 | INFO     | module.cleaning_module | Cleaning complete. 3/3 succeeded.
+2026-09-10 19:38:50 | INFO     | module.evaluation_module | Running evaluation...
+2026-09-10 19:38:50 | INFO     | utils.metrics | Computing data quality report...
+2026-09-10 19:38:50 | DEBUG    | utils.metrics | Completeness score: 0.9992
+2026-09-10 19:38:50 | DEBUG    | utils.metrics | Consistency score: 1.0000
+2026-09-10 19:38:50 | DEBUG    | utils.metrics | Uniqueness score: 1.0000 (0 duplicate rows)
+2026-09-10 19:38:50 | DEBUG    | utils.metrics | Validity score: 0.9557
+2026-09-10 19:38:50 | INFO     | utils.metrics | Quality Report — Overall: [bold]98.87%[/bold] | Completeness: 99.92% | Consistency: 100.00% | Uniqueness: 100.00% | Validity: 95.57%
+2026-09-10 19:38:51 | INFO     | utils.metrics | Computing data quality report...
+2026-09-10 19:38:51 | DEBUG    | utils.metrics | Completeness score: 0.9992
+2026-09-10 19:38:51 | DEBUG    | utils.metrics | Consistency score: 1.0000
+2026-09-10 19:38:51 | DEBUG    | utils.metrics | Uniqueness score: 1.0000 (0 duplicate rows)
+2026-09-10 19:38:51 | DEBUG    | utils.metrics | Validity score: 1.0000
+2026-09-10 19:38:51 | INFO     | utils.metrics | Quality Report — Overall: [bold]99.98%[/bold] | Completeness: 99.92% | Consistency: 100.00% | Uniqueness: 100.00% | Validity: 100.00%
+2026-09-10 19:38:51 | INFO     | utils.metrics | Quality improved by [bold green]+1.11%[/bold green] (from 98.87% to 99.98%)
+2026-09-10 19:38:51 | INFO     | module.evaluation_module | Evaluation complete. Overall quality changed by +1.11%. Improved: overall, validity. Actions: 3 succeeded.
+2026-09-10 19:38:51 | INFO     | core.pipeline | Saved cleaned data → outputs/tmpzmdbbwgs_cleaned_20260910_193851.csv
+2026-09-10 19:38:51 | INFO     | core.pipeline | Appended decision log → logs/decision_logs.json (Total entries: 1)

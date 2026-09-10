@@ -1,0 +1,236 @@
+[
+  {
+    "timestamp": "2026-09-10T19:38:51.128633",
+    "source_file": "tmpzmdbbwgs.csv",
+    "fingerprint": "30f9bc9f",
+    "shape_original": [
+      8399,
+      10
+    ],
+    "shape_cleaned": [
+      8399,
+      10
+    ],
+    "source": "llm",
+    "issues": [
+      {
+        "column": "Sales",
+        "issue_type": "unexpected_high_cardinality",
+        "severity": "medium",
+        "affected_rows": 8153,
+        "affected_pct": 0.9707,
+        "description": "'Sales' has 97.1% unique values but isn't an identifier.",
+        "recommended_action": "verify if column should be categorical or contains noisy data"
+      },
+      {
+        "column": "Profit",
+        "issue_type": "outliers",
+        "severity": "medium",
+        "affected_rows": 1704,
+        "affected_pct": 0.20288129539230862,
+        "description": "'Profit' has 1704 IQR outliers (20.3%).",
+        "recommended_action": "cap outliers using IQR fences"
+      },
+      {
+        "column": "Sales",
+        "issue_type": "outliers",
+        "severity": "medium",
+        "affected_rows": 1042,
+        "affected_pct": 0.124062388379569,
+        "description": "'Sales' has 1042 IQR outliers (12.4%).",
+        "recommended_action": "cap outliers using IQR fences"
+      },
+      {
+        "column": "Shipping_Cost",
+        "issue_type": "outliers",
+        "severity": "medium",
+        "affected_rows": 972,
+        "affected_pct": 0.11572806286462674,
+        "description": "'Shipping_Cost' has 972 IQR outliers (11.6%).",
+        "recommended_action": "cap outliers using IQR fences"
+      },
+      {
+        "column": "Product_Base_Margin",
+        "issue_type": "low_cardinality",
+        "severity": "low",
+        "affected_rows": 8399,
+        "affected_pct": 0.0061,
+        "description": "'Product_Base_Margin' has very low cardinality (51 unique).",
+        "recommended_action": "consider encoding as category or dropping if constant-like"
+      },
+      {
+        "column": "Order_Quantity",
+        "issue_type": "low_cardinality",
+        "severity": "low",
+        "affected_rows": 8399,
+        "affected_pct": 0.006,
+        "description": "'Order_Quantity' has very low cardinality (50 unique).",
+        "recommended_action": "consider encoding as category or dropping if constant-like"
+      },
+      {
+        "column": "Prod_id",
+        "issue_type": "low_cardinality",
+        "severity": "low",
+        "affected_rows": 8399,
+        "affected_pct": 0.002,
+        "description": "'Prod_id' has very low cardinality (17 unique).",
+        "recommended_action": "consider encoding as category or dropping if constant-like"
+      },
+      {
+        "column": "Discount",
+        "issue_type": "low_cardinality",
+        "severity": "low",
+        "affected_rows": 8399,
+        "affected_pct": 0.0019,
+        "description": "'Discount' has very low cardinality (16 unique).",
+        "recommended_action": "consider encoding as category or dropping if constant-like"
+      }
+    ],
+    "actions": [
+      {
+        "column": "Profit",
+        "operation": "cap_outliers",
+        "params": {
+          "method": "iqr",
+          "multiplier": 1.5
+        },
+        "source": "llm",
+        "rationale": "To reduce the impact of extreme values on analysis."
+      },
+      {
+        "column": "Sales",
+        "operation": "cap_outliers",
+        "params": {
+          "method": "iqr",
+          "multiplier": 1.5
+        },
+        "source": "llm",
+        "rationale": "To reduce the impact of extreme values on analysis."
+      },
+      {
+        "column": "Shipping_Cost",
+        "operation": "cap_outliers",
+        "params": {
+          "method": "iqr",
+          "multiplier": 1.5
+        },
+        "source": "llm",
+        "rationale": "To reduce the impact of extreme values on analysis."
+      }
+    ],
+    "execution_logs": [
+      {
+        "column": "Profit",
+        "operation": "cap_outliers",
+        "status": "success",
+        "message": "Capped outliers using 'iqr'"
+      },
+      {
+        "column": "Sales",
+        "operation": "cap_outliers",
+        "status": "success",
+        "message": "Capped outliers using 'iqr'"
+      },
+      {
+        "column": "Shipping_Cost",
+        "operation": "cap_outliers",
+        "status": "success",
+        "message": "Capped outliers using 'iqr'"
+      }
+    ],
+    "evaluation": {
+      "summary": "Overall quality changed by +1.11%. Improved: overall, validity. Actions: 3 succeeded.",
+      "delta": {
+        "overall": 0.0111,
+        "completeness": 0.0,
+        "consistency": 0.0,
+        "uniqueness": 0.0,
+        "validity": 0.0443,
+        "rows_removed": 0,
+        "improved": "True"
+      },
+      "before": {
+        "scores": {
+          "completeness": 0.9992,
+          "consistency": 1.0,
+          "uniqueness": 1.0,
+          "validity": 0.9557,
+          "overall": 0.9887
+        },
+        "details": {
+          "missing_by_column": {
+            "Product_Base_Margin": 0.0075
+          },
+          "type_issues_by_column": {},
+          "duplicate_count": 0,
+          "duplicate_percentage": 0.0,
+          "outlier_count_by_column": {
+            "Sales": 1042,
+            "Discount": 3,
+            "Profit": 1704,
+            "Shipping_Cost": 972
+          }
+        },
+        "dataset_info": {
+          "n_rows": 8399,
+          "n_columns": 10
+        }
+      },
+      "after": {
+        "scores": {
+          "completeness": 0.9992,
+          "consistency": 1.0,
+          "uniqueness": 1.0,
+          "validity": 1.0,
+          "overall": 0.9998
+        },
+        "details": {
+          "missing_by_column": {
+            "Product_Base_Margin": 0.0075
+          },
+          "type_issues_by_column": {},
+          "duplicate_count": 0,
+          "duplicate_percentage": 0.0,
+          "outlier_count_by_column": {
+            "Discount": 3
+          }
+        },
+        "dataset_info": {
+          "n_rows": 8399,
+          "n_columns": 10
+        }
+      },
+      "score_box": {
+        "before": {
+          "completeness": 0.9992,
+          "consistency": 1.0,
+          "uniqueness": 1.0,
+          "validity": 0.9557,
+          "overall": 0.9887
+        },
+        "after": {
+          "completeness": 0.9992,
+          "consistency": 1.0,
+          "uniqueness": 1.0,
+          "validity": 1.0,
+          "overall": 0.9998
+        },
+        "delta": {
+          "completeness": 0.0,
+          "consistency": 0.0,
+          "uniqueness": 0.0,
+          "validity": 0.0443,
+          "overall": 0.0111
+        },
+        "improved": "True",
+        "rows_removed": 0,
+        "columns_removed": 0,
+        "summary": "Overall quality changed by +1.11%. Improved: overall, validity. Actions: 3 succeeded.",
+        "n_rows_before": 8399,
+        "n_rows_after": 8399,
+        "n_cols_before": 10,
+        "n_cols_after": 10
+      }
+    }
+  }
+]
