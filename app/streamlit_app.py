@@ -64,6 +64,7 @@ def _init_state():
         "llm_status": None,
         "report": None,
         "df_clean": None,
+        "exec_logs" : None,
         "_bootstrapped": False,
     }
     for k, v in defaults.items():
@@ -220,7 +221,7 @@ elif st.session_state.page == "cleaning":
     with top_l:
         with st.container(border=True, height=330):
             st.markdown("**Options to select for each column**")
-            cols = ["Full Dataset"] + list(st.session_state.df.columns)
+            cols = ["__dataset__"] + list(st.session_state.df.columns)
             c_col = st.selectbox(
                 "Target column",
                 options=cols,
@@ -288,6 +289,7 @@ elif st.session_state.page == "cleaning":
                         )
                             st.session_state.df_clean = df_clean
                             st.session_state.report = report
+                            st.session_state.exec_logs = logs
                             st.session_state.llm_status = "MANUAL_SUCCESS"
                         st.session_state.page = "results"
                         st.rerun()
@@ -314,6 +316,7 @@ elif st.session_state.page == "cleaning":
                 else:
                     st.session_state.df_clean = None
                     st.session_state.report = None
+                    st.session_state.exec_logs = logs
                     st.session_state.llm_status = "FAILED"
             st.rerun()
 
@@ -377,6 +380,13 @@ elif st.session_state.page == "results":
     with left:
         with st.container(border=True, height=520):
             st.markdown("**cleaned data**")
+            failed_logs = [
+                l for l in (st.session_state.exec_logs or []) if l.status == "error"
+            ]
+            if failed_logs:
+                with st.expander(f"{len(failed_logs)} actions(s) failed", expanded = True):
+                    for l in failed_logs:
+                        st.error(f"`{l.column}' . {l.operation}: {l.message}")
             st.dataframe(st.session_state.df_clean, use_container_width=True, height=460)
 
     with right:

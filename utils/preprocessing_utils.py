@@ -106,13 +106,25 @@ def impute_missing(
 
     if strategy == "mean":
         if not pd.api.types.is_numeric_dtype(df_copy[column]):
-            raise ValueError(f"Cannot use 'mean' strategy on non-numeric column '{column}'")
+            coerced = pd.to_numeric(df_copy[column], errors = "corece")
+            newly_nulled = coerced.isna() & df[column].notna()
+            if newly_nulled.sum() == 0:
+                df[column] = coerced
+                logger.info(f"Column {column} coerced from text to numric before impuataion.")
+            else:
+                raise ValueError(f"Cannot use 'mean' strategy on non-numeric column '{column}'")
         fill_val = df_copy[column].mean()
         df_copy[column] = df_copy[column].fillna(fill_val)
 
     elif strategy == "median":
         if not pd.api.types.is_numeric_dtype(df_copy[column]):
-            raise ValueError(f"Cannot use 'median' strategy on non-numeric column '{column}'")
+            coerced = pd.to_numeric(df_copy[column], errors = "corece")
+            newly_nulled = coerced.isna() & df[column].notna()
+            if newly_nulled.sum() == 0:
+                df[column] = coerced
+                logger.info(f"Column {column} coerced from text to numric before impuataion.")
+            else:
+                raise ValueError(f"Cannot use 'median' strategy on non-numeric column '{column}'")
         fill_val = df_copy[column].median()
         df_copy[column] = df_copy[column].fillna(fill_val)
 
